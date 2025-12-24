@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты - Егор Крид</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content {
+            flex: 1;
+        }
+        .photo-sidebar {
+            width: 400px;
+        }
+        .artist-photo {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #1E90FF;
+        }
+        .main-menu {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+        }
+        .contact-section {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #1E90FF;
+            margin-bottom: 20px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(50, 50, 50, 0.6);
+            border-radius: 8px;
+        }
+        .contact-icon {
+            font-size: 2em;
+            margin-right: 20px;
+            width: 60px;
+            text-align: center;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-btn {
+            background: #1E90FF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .contact-btn:hover {
+            background: #0066CC;
+        }
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            border: 1px solid #1E90FF;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Меню навигации -->
+            <div class="main-menu">
+                <p style="font-family: Arial, sans-serif; color:#1E90FF">
+                    <a href="главная.html" style="color:#1E90FF">Главная</a> | 
+                    <a href="сайт.html" style="color:#1E90FF">Общая информация</a> | 
+                    <a href="история.html" style="color:#1E90FF">История</a> | 
+                    <a href="дискография.html" style="color:#1E90FF">Дискография</a> | 
+                    <a href="фильмография.html" style="color:#1E90FF">Фильмография</a> | 
+                    <a href="источники.html" style="color:#1E90FF">Источники</a> |
+                    <a href="заказать.html" style="color:#1E90FF">Заказать</a> |
+                    <strong>Контакты</strong>
+                </p>
+            </div>
+
+            <!-- Заголовок -->
+            <H1 align="center">
+                <EM>Контакты</EM>
+            </H1>
+
+            <!-- Секция Email -->
+            <div class="contact-section">
+                <H2 style="color: #1E90FF;">📧 Электронная почта</H2>
+                <div class="contact-method">
+                    <div class="contact-icon">📨</div>
+                    <div class="contact-info">
+                        <strong>Для сотрудничества и предложений</strong>
+                        <P>Отправьте нам письмо с вашим предложением</P>
+                        <a href="mailto:egor.kreed@example.com?subject=Сотрудничество&body=Здравствуйте, я хотел бы обсудить сотрудничество." 
+                           class="contact-btn">
+                            Написать письмо
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">🎵</div>
+                    <div class="contact-info">
+                        <strong>Для фанатов и вопросов</strong>
+                        <P>Задайте вопрос или поделитесь отзывом</P>
+                        <a href="mailto:fan@egorkreed.com?subject=Вопрос от фаната&body=Здравствуйте, у меня вопрос:" 
+                           class="contact-btn">
+                            Отправить сообщение
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция Telegram -->
+            <div class="contact-section">
+                <H2 style="color: #1E90FF;">✈️ Telegram</H2>
+                <div class="contact-method">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-info">
+                        <strong>Официальный Telegram канал</strong>
+                        <P>Будьте в курсе последних новостей и анонсов</P>
+                        <a href="https://t.me/egorkreed_official" class="contact-btn" target="_blank">
+                            Подписаться на канал
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-method">
+                    <div class="contact-icon">👥</div>
+                    <div class="contact-info">
+                        <strong>Чат с фанатами</strong>
+                        <P>Общайтесь с другими поклонниками творчества</P>
+                        <a href="https://t.me/egorkreed_fans" class="contact-btn" target="_blank">
+                            Присоединиться к чату
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция Яндекс Карты -->
+            <div class="contact-section">
+                <H2 style="color: #1E90FF;">🗺️ Адрес студии</H2>
+                <P><strong>Москва, ул. Арбат, 25</strong></P>
+                <P>Студия звукозаписи Егора Крида</P>
+                
+                <div class="map-container">
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e&amp;source=constructor" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Горизонтальная линия -->
+            <HR align="center" width="50%" size="2" color="#1E90FF">
+
+            <!-- Авторские права -->
+            <P align="center">
+                <FONT face="Arial" size="1" color="white">
+                    &copy; Все права защищены. Ю.Э. Хандаева, 3 курс, БЭР2302. 2025.
+                </FONT>
+            </P>
+        </div>
+
+        <!-- Фото сбоку -->
+        <div class="photo-sidebar">
+            <img src="https://i.pinimg.com/736x/04/a7/2f/04a72f710bea9b309cd9f62b81fb0e85.jpg" 
+                 alt="Егор Крид" 
+                 class="artist-photo"
+                 onerror="this.src='IMAGES/kreed.jpg'">
+            
+            <!-- Дополнительная информация -->
+            <div style="margin-top: 20px; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                <H3 style="color: #1E90FF; text-align: center;">Режим работы</H3>
+                <UL style="color: #ccc; line-height: 1.8;">
+                    <li><strong>Пн-Пт:</strong> 10:00 - 19:00</li>
+                    <li><strong>Сб:</strong> 11:00 - 17:00</li>
+                    <li><strong>Вс:</strong> Выходной</li>
+                    <li><strong>Концерты:</strong> По расписанию</li>
+                </UL>
+            </div>
+
+            <!-- Быстрые контакты -->
+            <div style="margin-top: 20px; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                <H3 style="color: #1E90FF; text-align: center;">Быстрые ссылки</H3>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                    <a href="https://instagram.com/egorkreed" style="background: #1E90FF; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none;" target="_blank">
+                        📷 Instagram
+                    </a>
+                    <a href="https://vk.com/egorkreed" style="background: #1E90FF; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none;" target="_blank">
+                        👥 VKontakte
+                    </a>
+                    <a href="https://youtube.com/egorkreed" style="background: #1E90FF; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none;" target="_blank">
+                        🎥 YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

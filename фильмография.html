@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильмография - Егор Крид</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content {
+            flex: 1;
+        }
+        .photo-sidebar {
+            width: 400px;
+        }
+        .artist-photo {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #1E90FF;
+        }
+        .main-menu {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #1E90FF;
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #1E90FF;
+            color: #000000;
+            font-weight: bold;
+        }
+        .film-poster {
+            border-radius: 5px;
+            border: 1px solid #1E90FF;
+        }
+        .rating {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .plot-section {
+            margin-top: 40px;
+        }
+        .film-plot {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid #1E90FF;
+        }
+        .plot-title {
+            color: #1E90FF;
+            margin-bottom: 15px;
+        }
+        .plot-text {
+            text-align: justify;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Меню навигации -->
+            <div class="main-menu">
+                <p style="font-family: Arial, sans-serif; color:#1E90FF">
+                    <a href="index.html" style="color:#1E90FF">Главная</a> | 
+                    <a href="сайт.html" style="color:#1E90FF">Общая информация</a> | 
+                    <a href="история.html" style="color:#1E90FF">История</a> | 
+                    <a href="дискография.html" style="color:#1E90FF">Дискография</a> | 
+                    <strong>Фильмография</strong> | 
+                    <a href="источники.html" style="color:#1E90FF">Источники</a>
+					<a href="заказать.html" style="color:#1E90FF">Заказать</a> |
+					<a href="контакты.html" style="color:#1E90FF">Контакты</a> |
+                </p>
+            </div>
+
+            <!-- Заголовок -->
+            <H1 align="center">
+                <EM>Фильмография</EM>
+            </H1>
+
+            <!-- Таблица фильмографии -->
+            <TABLE border=1 align=center width="95%">
+                <TR align=center> 
+                    <TD><strong>Год</strong></TD> 
+                    <TD><strong>Фильм</strong></TD> 
+                    <TD><strong>Роль</strong></TD> 
+                    <TD><strong>Афиша</strong></TD>
+                    <TD><strong>Рейтинг</strong></TD> 
+                </TR>
+                
+                <TR align=center> 
+                    <TD>2025</TD> 
+                    <TD><strong>Вниз</strong></TD> 
+                    <TD>Главная роль</TD> 
+                    <TD><IMG src="https://cdn.p24.app/r/ps/ru/60/60437a77-8276-4426-a20b-443d14a84189/ed89fc5e-e853-493d-b25f-0ff64b3a9c02.jpg" width=150 class="film-poster"></TD> 
+                    <TD class="rating">7.2/10</TD>
+                </TR>
+                
+                <TR align=center> 
+                    <TD>2020</TD> 
+                    <TD><strong>(НЕ)идеальный мужчина</strong></TD> 
+                    <TD>Главная роль</TD> 
+                    <TD><IMG src="https://images.kinomax.ru/550/films/4/4889/p_379b42b.jpg" width=150 class="film-poster"></TD> 
+                    <TD class="rating">6.8/10</TD>
+                </TR>
+            </TABLE>
+
+            <!-- Сюжеты фильмов -->
+            <div class="plot-section">
+                <div class="film-plot">
+                    <H2 class="plot-title">«Вниз» - Сюжет</H2>
+                    <P class="plot-text">
+                        Антон и Марина в день свадьбы собираются улететь на медовый месяц, но перед поездкой в аэропорт им нужно заехать в небоскрёб «Москва-Сити». В лифте к паре подсаживается мрачный незнакомец, который представляется дядей Витей. Поначалу он ведёт себя как доброжелательный попутчик и даже пытается помочь молодым выбраться, однако вскоре становится ясно: их встреча неслучайна.
+                    </P>
+                </div>
+
+                <div class="film-plot">
+                    <H2 class="plot-title">«(НЕ)идеальный мужчина» - Сюжет</H2>
+                    <P class="plot-text">
+                        Свете не везёт с отношениями: она вечно подстраивается под парней, унижается и терпит измены. После расставания с очередным бойфрендом девушка идёт работать в компанию по продаже роботов. Те уже стали частью обычной жизни, их не отличить от людей, но они чутко реагируют на характер человека, его потребности, привычки и слабости. Когда у одного из роботов обнаруживается программный сбой и его хотят вернуть производителю, Света упрашивает продать его ей, так как влюбляется в него, приняв технический дефект за проявление личности. Более того, Света хочет связать свою жизнь с чутким, внимательным и заботливым роботом, и это приводит к самым неожиданным последствиям.
+                    </P>
+                </div>
+            </div>
+
+            <!-- Информация внизу -->
+            <div style="display: flex; gap: 20px; margin-top: 40px;">
+                <div style="flex: 1; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                    <H3 style="color: #1E90FF; text-align: center;">Актёрские работы</H3>
+                    <UL style="color: #ccc; line-height: 1.8;">
+                        <li><strong>2</strong> главные роли в кино</li>
+                        <li><strong>2020</strong> - дебют в главных ролях</li>
+                        <li><strong>Драма</strong> и комедия</li>
+                        <li><strong>Саундтреки</strong> к фильмам</li>
+                        <li><strong>7.0+</strong> средний рейтинг</li>
+                    </UL>
+                </div>
+
+                <div style="flex: 1; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                    <H3 style="color: #1E90FF; text-align: center;">Кинодостижения</H3>
+                    <div style="color: #ccc; line-height: 1.6;">
+                        <P><strong>«Вниз»</strong><br>Главная роль в драме<br>Рейтинг: 7.2/10</P>
+                        <P><strong>«(НЕ)идеальный мужчина»</strong><br>Главная роль в комедии<br>Хит-саундтрек</P>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Горизонтальная линия -->
+            <HR align="center" width="50%" size="2" color="#1E90FF">
+
+            <!-- Авторские права -->
+            <P align="center">
+                <FONT face="Arial" size="1" color="white">
+                    &copy; Все права защищены. И.И. Иванов, 11А класс. 2024.
+                </FONT>
+            </P>
+        </div>

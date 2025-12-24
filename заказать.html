@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказать - Егор Крид</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content {
+            flex: 1;
+        }
+        .photo-sidebar {
+            width: 400px;
+        }
+        .artist-photo {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #1E90FF;
+        }
+        .main-menu {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+        }
+        .google-form {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #1E90FF;
+            text-align: center;
+        }
+        .form-frame {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+        }
+        .form-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Меню навигации -->
+            <div class="main-menu">
+                <p style="font-family: Arial, sans-serif; color:#1E90FF">
+                    <a href="index.html" style="color:#1E90FF">Главная</a> | 
+                    <a href="сайт.html" style="color:#1E90FF">Общая информация</a> | 
+                    <a href="история.html" style="color:#1E90FF">История</a> | 
+                    <a href="дискография.html" style="color:#1E90FF">Дискография</a> | 
+                    <a href="фильмография.html" style="color:#1E90FF">Фильмография</a> | 
+                    <a href="источники.html" style="color:#1E90FF">Источники</a> |
+                    <strong>Заказать</strong> |
+                    <a href="контакты.html" style="color:#1E90FF">Контакты</a>
+                </p>
+            </div>
+
+            <!-- Заголовок -->
+            <H1 align="center">
+                <EM>Заказать мерч и музыку</EM>
+            </H1>
+
+            <!-- Google Forms -->
+            <div class="google-form">
+                <div class="form-description">
+                    <P><strong>Заполните форму ниже, чтобы заказать официальный мерч Егора Крида, 
+                    музыкальные альбомы или получить информацию о концертах.</strong></P>
+                    <P>Все заказы обрабатываются в течение 24 часов.</P>
+                </div>
+                
+                <iframe class="form-frame" 
+                        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdg1nw-Trl6gmXdhVk9oCKdV-b7Z3zl05GVvvoW3n2akERaiw/viewform?embedded=true" width="640" height="1037" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+                    Загрузка...
+                </iframe>
+            </div>
+
+            <!-- Горизонтальная линия -->
+            <HR align="center" width="50%" size="2" color="#1E90FF">
+
+            <!-- Авторские права -->
+            <P align="center">
+                <FONT face="Arial" size="1" color="white">
+                    &copy; Все права защищены. Ю.Э. Хандаева, 3 курс, БЭР2302. 2025.
+                </FONT>
+            </P>
+        </div>
+
+        <!-- Фото сбоку -->
+        <div class="photo-sidebar">
+            <img src="https://cdn.pbilet.com/origin/2a4e388f-4cea-45c8-8e23-0caae844d872.jpeg" 
+                 alt="Егор Крид" 
+                 class="artist-photo"
+                 onerror="this.src='IMAGES/kreed.jpg'">
+            
+            <!-- Дополнительная информация -->
+            <div style="margin-top: 20px; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                <H3 style="color: #1E90FF; text-align: center;">Что можно заказать</H3>
+                <UL style="color: #ccc; line-height: 1.8;">
+                    <li>⚡ Официальный мерч</li>
+                    <li>🎵 Музыкальные альбомы</li>
+                    <li>🎫 Билеты на концерты</li>
+                    <li>📀 Автографы</li>
+                    <li>🎁 Подарочные наборы</li>
+                    <li>👕 Футболки и худи</li>
+                </UL>
+            </div>
+
+            <!-- Контактная информация -->
+            <div style="margin-top: 20px; padding: 20px; background: rgba(30, 144, 255, 0.1); border-radius: 10px; border: 1px solid #1E90FF;">
+                <H3 style="color: #1E90FF; text-align: center;">Доставка</H3>
+                <P style="color: #ccc; line-height: 1.6;">
+                    <strong>По России:</strong> 3-7 дней<br>
+                    <strong>СНГ:</strong> 7-14 дней<br>
+                    <strong>Другие страны:</strong> 14-21 день<br>
+                    <strong>Самовывоз:</strong> Москва
+                </P>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

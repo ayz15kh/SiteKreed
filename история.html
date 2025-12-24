@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>История - Егор Крид</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .content {
+            flex: 1;
+        }
+        
+        .photo-sidebar {
+            width: 400px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        
+        .artist-photo {
+            width: 100%;
+            border-radius: 15px;
+            border: 3px solid #1E90FF;
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .artist-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(30, 144, 255, 0.5);
+        }
+
+        /* Анимированное меню */
+        .animated-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(30, 144, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #1e90ff, #0066cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+            border: 2px solid transparent;
+            text-align: center;
+            min-width: 120px;
+            font-size: 14px;
+        }
+        
+        .menu-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.4);
+            border-color: #fff;
+        }
+        
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+            z-index: -1;
+        }
+        
+        .menu-link:hover::before {
+            left: 100%;
+        }
+        
+        .menu-link.active {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            animation: pulse 2s infinite;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+        
+        .menu-item {
+            animation: slideInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item:nth-child(3) { animation-delay: 0.3s; }
+        .menu-item:nth-child(4) { animation-delay: 0.4s; }
+        .menu-item:nth-child(5) { animation-delay: 0.5s; }
+        .menu-item:nth-child(6) { animation-delay: 0.6s; }
+        .menu-item:nth-child(7) { animation-delay: 0.7s; }
+        .menu-item:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Заголовки и контент */
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 30px 0;
+            color: #1E90FF;
+            text-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+        
+        h2 {
+            color: #1E90FF;
+            border-bottom: 2px solid #1E90FF;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 1.8em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+            transition: left 0.5s ease;
+        }
+        
+        h2:hover::after {
+            left: 100%;
+        }
+        
+        .timeline-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #1E90FF;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2);
+        }
+        
+        .timeline-item:nth-child(1) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(3) { animation-delay: 1s; }
+        .timeline-item:nth-child(4) { animation-delay: 1.2s; }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        a {
+            color: #1E90FF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(30, 144, 255, 0.2);
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background: rgba(30, 144, 255, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Сайдбар с дополнительной информацией */
+        .info-box {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(30, 144, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid #1E90FF;
+            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.2);
+        }
+        
+        .info-box h3 {
+            color: #1E90FF;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .info-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(30, 144, 255, 0.3);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .info-box li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #1E90FF;
+            font-size: 0.8em;
+        }
+        
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Футер */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(30, 144, 255, 0.3);
+            color: #ccc;
+            font-size: 0.9em;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .photo-sidebar {
+                width: 100%;
+                position: static;
+            }
+            
+            .animated-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-link {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- Анимированное меню -->
+            <nav class="animated-menu">
+                <div class="menu-item">
+                    <a href="главная.html" class="menu-link">Главная</a>
+                </div>
+                <div class="menu-item">
+                    <a href="сайт.html" class="menu-link">Общая информация</a>
+                </div>
+                <div class="menu-item">
+                    <a href="история.html" class="menu-link active">История</a>
+                </div>
+                <div class="menu-item">
+                    <a href="дискография.html" class="menu-link">Дискография</a>
+                </div>
+                <div class="menu-item">
+                    <a href="фильмография.html" class="menu-link">Фильмография</a>
+                </div>
+                <div class="menu-item">
+                    <a href="источники.html" class="menu-link">Источники</a>
+                </div>
+                <div class="menu-item">
+                    <a href="заказать.html" class="menu-link">Заказать</a>
+                </div>
+                <div class="menu-item">
+                    <a href="контакты.html" class="menu-link">Контакты</a>
+                </div>
+            </nav>
+
+            <!-- Заголовок -->
+            <h1>
+                <em>История творческого пути</em>
+            </h1>
+
+            <!-- Содержание -->
+            <div class="timeline-item">
+                <h2>Содержание</h2>
+                <ul>
+                    <li><a href="#start">Начало карьеры (2011-2012)</a></li>
+                    <li><a href="#blackstar">Black Star период (2012-2019)</a></li>
+                    <li><a href="#independent">Независимый артист (2019-настоящее время)</a></li>
+                    <li><a href="#achievements">Достижения и награды</a></li>
+                </ul>
+            </div>
+
+            <!-- Раздел 1: Начало карьеры -->
+            <div class="timeline-item">
+                <h2>НАЧАЛО КАРЬЕРЫ (2011-2012)</h2>
+                <p>
+                    <strong>2011 год</strong> - Егор Крид начал свою музыкальную карьеру под псевдонимом KReeD. 
+                    Первый клип был выпущен 6 апреля 2011 года на песню «Просыпайся».
+                </p>
+                <p>
+                    Песню «Любовь в сети», опубликованную в 2011 году, за 2 недели прослушали свыше миллиона человек. 
+                    Клип на YouTube собрал 2 миллиона просмотров к ноябрю 2011 года.
+                </p>
+                <p>
+                    <strong>2012 год</strong> - Стал победителем конкурса «Звезда Вконтакте — Пятый канал» 
+                    в номинации «Лучший хип-хоп проект».
+                </p>
+                <div class="back-to-top">
+                    <a href="#top">↑ К содержанию</a>
+                </div>
+            </div>
+
+            <!-- Раздел 2: Black Star -->
+            <div class="timeline-item">
+                <h2>BLACK STAR ПЕРИОД (2012-2019)</h2>
+                <p>
+                    <strong>Апрель 2012</strong> - Подписал контракт с лейблом Black Star Inc. и переехал в Москву. 
+                    Первые два года карьера развивалась медленно.
+                </p>
+                <p>
+                    <strong>2014 год</strong> - Выпустил песню «Самая самая», которая была написана за 15 минут. 
+                    Песня заняла первые места в хит-парадах и собрала более 180 миллионов просмотров на YouTube.
+                </p>
+                <p>
+                    <strong>2 апреля 2015</strong> - Выпустил дебютный студийный альбом «Холостяк». 
+                    Новым хитом стала песня «Невеста».
+                </p>
+                <p>
+                    <strong>2015-2019</strong> - Активно участвовал в телевизионных проектах, выступал на 
+                    «Новогоднем Голубом огоньке» и других крупных мероприятиях.
+                </p>
+                <div class="back-to-top">
+                    <a href="#top">↑ К содержанию</a>
+                </div>
+            </div>
+
+            <!-- Раздел 3: Независимый артист -->
+            <div class="timeline-item">
+                <h2>НЕЗАВИСИМЫЙ АРТИСТ (2019-НАСТОЯЩЕЕ ВРЕМЯ)</h2>
+                <p>
+                    <strong>Март 2019</strong> - После окончания контракта с Black Star принял решение 
+                    заниматься карьерой самостоятельно. Сумел сохранить за собой имя и все свои песни.
+                </p>
+                <p>
+                    <strong>2019 год</strong> - Заключил контракт с Warner Music для дистрибуции своих треков. 
+                    Выпустил клипы «Слухи», «Грехи» и «Сердцеедка».
+                </p>
+                <p>
+                    <strong>10 апреля 2020</strong> - Выпустил третий студийный альбом «58» 
+                    (номер Пензенской области, где родился артист).
+                </p>
+                <p>
+                    <strong>2022 год</strong> - Стал наставником в шоу «Голос», проявив себя как опытный музыкант.
+                </p>
+                <div class="back-to-top">
+                    <a href="#top">↑ К содержанию</a>
+                </div>
+            </div>
+
+            <!-- Раздел 4: Достижения -->
+            <div class="timeline-item">
+                <h2>ДОСТИЖЕНИЯ И НАГРАДЫ</h2>
+                <ul>
+                    <li><strong>Заслуженный артист Республики Башкортостан (2025)</strong></li>
+                    <li><strong>Премия MUZ-TV</strong> - "Лучший хип-хоп проект" (2016)</li>
+                    <li><strong>Золотой граммофон</strong> - за песню "Самурай" (2015)</li>
+                    <li><strong>Nickelodeon Kids' Choice Awards</strong> - "Любимый российский артист" (2018)</li>
+                    <li><strong>Более 200 концертов</strong> по России и СНГ</li>
+                    <li><strong>10+ миллионов</strong> подписчиков в социальных сетях</li>
+                </ul>
+                <div class="back-to-top">
+                    <a href="#top">↑ К содержанию</a>
+                </div>
+            </div>
+
+            <!-- Футер -->
+            <footer>
+                <p>
+                    &copy; Все права защищены. Ю.Э. Хандаева, 3 курс, БЭР2302. 2025.
+                </p>
+            </footer>
+        </div>
+
+        <!-- Фото сбоку -->
+        <div class="photo-sidebar">
+            <img src="https://st.peopletalk.ru/wp-content/uploads/2022/03/z_4369a618-1024x682.jpg" 
+                 alt="Егор Крид" 
+                 class="artist-photo"
+                 onerror="this.src='IMAGES/kreed.jpg'">
+            
+            <!-- Дополнительная информация -->
+            <div class="info-box">
+                <h3>Ключевые даты</h3>
+                <ul>
+                    <li><strong>2011</strong> - Начало карьеры</li>
+                    <li><strong>2012</strong> - Контракт с Black Star</li>
+                    <li><strong>2015</strong> - Альбом "Холостяк"</li>
+                    <li><strong>2019</strong> - Независимая карьера</li>
+                    <li><strong>2020</strong> - Альбом "58"</li>
+                    <li><strong>2022</strong> - Наставник в "Голосе"</li>
+                    <li><strong>2025</strong> - Заслуженный артист</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu-link');
+            
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    menuLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Плавная прокрутка к якорям
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

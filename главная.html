@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Егор Крид - Главная страница</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #1e90ff;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+        
+        /* Стили для анимированного меню */
+        .animated-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #1e90ff, #0066cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+            border: 2px solid transparent;
+            text-align: center;
+            min-width: 140px;
+        }
+        
+        .menu-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.3);
+            border-color: #fff;
+        }
+        
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        
+        .menu-link:hover::before {
+            left: 100%;
+        }
+        
+        /* Анимация появления меню */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .menu-item {
+            animation: slideInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .menu-item:nth-child(1) { animation-delay: 0.1s; }
+        .menu-item:nth-child(2) { animation-delay: 0.2s; }
+        .menu-item:nth-child(3) { animation-delay: 0.3s; }
+        .menu-item:nth-child(4) { animation-delay: 0.4s; }
+        .menu-item:nth-child(5) { animation-delay: 0.5s; }
+        .menu-item:nth-child(6) { animation-delay: 0.6s; }
+        .menu-item:nth-child(7) { animation-delay: 0.7s; }
+        .menu-item:nth-child(8) { animation-delay: 0.8s; }
+        
+        /* Эффект пульсации для активной страницы */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(30, 144, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0); }
+        }
+        
+        .menu-link.active {
+            animation: pulse 2s infinite;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .animated-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu-link {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        /* Остальные существующие стили остаются без изменений */
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .nav-btn {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-btn:hover {
+            background-color: #0066cc;
+            transform: translateY(-3px);
+        }
+        
+        .main-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .content-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        .back-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .back-btn:hover {
+            background-color: #555;
+        }
+        
+        h2 {
+            color: #1e90ff;
+            margin: 20px 0 15px;
+            border-bottom: 1px solid #1e90ff;
+            padding-bottom: 5px;
+        }
+        
+        h3 {
+            color: #1e90ff;
+            margin: 15px 0 10px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .back-to-top {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+        }
+        
+        .back-to-top a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Главная страница -->
+        <div id="main-page" class="page active">
+            <header>
+                <div class="logo">ЕГОР КРИД</div>
+                
+                <!-- Заголовок первого уровня -->
+                <h1 align="center"><em>Добро пожаловать на сайт, <br>посвященный Егоре Криду</em></h1>
+            </header>
+            
+            <!-- Основной контент -->
+            <div class="content-section">
+                <p align="justify">
+                    <em>Об этом артисте</em> написано столько, что вряд ли нам удалось бы добавить что-либо новое. На нашем сайте вы найдете историю создания, биографию, дискографию и фильмографию.
+                </p>
+                <p align="justify">
+                    Мы предлагаем вашему вниманию только достоверную информацию.
+                </p>
+                <p align="justify">
+                    Это учебный сайт демонстрационного содержания. Его цель - отработка технологии разметки гипертекстовых документов с помощью языка HTML. Более полную информацию о Егоре Криде вы найдете на других сайтах. Приносим свои извинения.
+                </p>
+            </div>
+            
+            <!-- Горизонтальная линия -->
+            <hr align="center" width="50%" size="1" color="green">
+            
+            <!-- Изображение Егора Крида -->
+            <div class="main-image">
+                <center>
+                    <img src="https://novokuznetsk.ananasposter.ru/image/catalog/poster/music/95/2182.jpg" width="50%" alt="Егор Крид">
+                </center>
+            </div>
+            
+            <!-- Анимированное меню -->
+            <nav class="animated-menu">
+                <div class="menu-item">
+                    <a href="главная.html" class="menu-link active">Главная</a>
+                </div>
+                <div class="menu-item">
+                    <a href="общая информация.html" class="menu-link">Общая информация</a>
+                </div>
+                <div class="menu-item">
+                    <a href="история.html" class="menu-link">История</a>
+                </div>
+                <div class="menu-item">
+                    <a href="дискография.html" class="menu-link">Дискография</a>
+                </div>
+                <div class="menu-item">
+                    <a href="фильмография.html" class="menu-link">Фильмография</a>
+                </div>
+                <div class="menu-item">
+                    <a href="источники.html" class="menu-link">Источники</a>
+                </div>
+                <div class="menu-item">
+                    <a href="заказать.html" class="menu-link">Заказать</a>
+                </div>
+                <div class="menu-item">
+                    <a href="контакты.html" class="menu-link">Контакты</a>
+                </div>
+            </nav>
+            
+            <!-- Футер -->
+            <footer>
+                <p align="center">
+                    <font face="Arial" size="1">
+                        &copy; Все права защищены. Ю.Э.Хандаева, 3 курс, БЭР2302. 2025.
+                    </font>
+                </p>
+            </footer>
+        </div>
+        
+        <!-- Страница "Общая информация" -->
+        <div id="info-page" class="page">
+            <button class="back-btn" onclick="showPage('main-page')">← Назад на главную</button>
+            
+            <header>
+                <div class="logo">ОБЩАЯ ИНФОРМАЦИЯ</div>
+            </header>
+            <!-- Остальной контент страниц... -->
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.menu-link');
+            
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Убираем активный класс у всех ссылок
+                    menuLinks.forEach(l => l.classList.remove('active'));
+                    // Добавляем активный класс к текущей ссылке
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
